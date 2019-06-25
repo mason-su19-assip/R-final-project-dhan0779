@@ -245,12 +245,12 @@ Column {data-width=500}
 dflat = dfnasa$lat[1:576]
 dflong = dfnasa$long[1:576]
 
-qpal <- colorFactor(c("red","blue"), domain = dfnasa$ozone[1:576])
+qpal <- colorFactor(c("red","blue"), domain = dfnasa$temperature[1:576])
 
 leaflet(slice(dfnasa,1:576)) %>%
   addTiles() %>%
   setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%
-  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(ozone))
+  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(temperature))
 ```
 
 
