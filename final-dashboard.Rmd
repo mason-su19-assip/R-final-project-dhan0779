@@ -249,8 +249,8 @@ qpal <- colorFactor(c("red","blue"), domain = dfnasa$temperature[1:576])
 
 leaflet(slice(dfnasa,1:576)) %>%
   addTiles() %>%
-  setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%
-  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(temperature))
+  setView(lng = -90, lat =  10, zoom = 3) %>%
+  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(temperature),stroke = FALSE, fillOpacity= 0.8)
 ```
 
 
@@ -258,7 +258,15 @@ Column {data-width=500}
 -----------------------------------------------------------------------
 ###Chart B
 ```{r}
+dflat = dfnasa$lat[1:576]
+dflong = dfnasa$long[1:576]
 
+qpal <- colorFactor(c("green","yellow"), domain = dfnasa$pressure[1:576])
+
+leaflet(slice(dfnasa,1:576)) %>%
+  addTiles() %>%
+  setView(lng = -90, lat =  10, zoom = 3) %>%
+  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(pressure),stroke = FALSE, fillOpacity= 0.6)
 ```
 
 
