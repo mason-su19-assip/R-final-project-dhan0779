@@ -11,9 +11,10 @@ library(flexdashboard)
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(highcharter))
 suppressPackageStartupMessages(library(leaflet))
+suppressPackageStartupMessages(library(corrplot))
 dfnasa <- as.data.frame(nasa)
 year1 = slice(dfnasa,1,577,1153,1729,2305,2881,3457,4033,4609,5185,5761,6337)
-year2 = slice(dfnasa,6913,7489,8065,8641,9217,9793,10369,10945,1152,12097,12673,13249)
+year2 = slice(dfnasa,6913,7489,8065,8641,9217,9793,10369,10945,11521,12097,12673,13249)
 year3 = slice(dfnasa,13825,14401,14977,15553,16129,16705,17281,17857,18433,19009,19585,20161)
 year4 = slice(dfnasa,20737,21313,21889,22465,23041,23617,24193,24769,25345,25921,26497,27073)
 year5 = slice(dfnasa,27649,28225,28801,29377,29953,30529,31105,31681,32257,32833,33409,33985)
@@ -245,12 +246,13 @@ Column {data-width=500}
 dflat = dfnasa$lat[1:576]
 dflong = dfnasa$long[1:576]
 
-qpal <- colorFactor(c("red","blue"), domain = dfnasa$temperature[1:576])
+qpal <- colorFactor(c("blue","royalblue","lightskyblue", "yellow","orange","red"), domain = dfnasa$temperature[1:576])
 
 leaflet(slice(dfnasa,1:576)) %>%
   addTiles() %>%
   setView(lng = -90, lat =  10, zoom = 3) %>%
-  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(temperature),stroke = FALSE, fillOpacity= 0.8)
+  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(temperature),stroke = FALSE, fillOpacity= 0.3,
+                    popup = paste("Temperature:", dfnasa$temperature))
 ```
 
 
@@ -261,12 +263,24 @@ Column {data-width=500}
 dflat = dfnasa$lat[1:576]
 dflong = dfnasa$long[1:576]
 
-qpal <- colorFactor(c("green","yellow"), domain = dfnasa$pressure[1:576])
+qpal <- colorFactor(c("blue","yellow2","orange","firebrick1"), domain = dfnasa$pressure[1:576])
 
 leaflet(slice(dfnasa,1:576)) %>%
   addTiles() %>%
   setView(lng = -90, lat =  10, zoom = 3) %>%
-  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(pressure),stroke = FALSE, fillOpacity= 0.6)
+  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(pressure),stroke = FALSE, fillOpacity= 0.5,
+                   popup = paste("Pressure:",dfnasa$pressure))
+```
+
+Other
+=======================================================================
+
+###Correlation Between Variables
+```{r}
+selected_var <- year1 %>%
+  select(cloudhigh,cloudmid,cloudlow,ozone,pressure,temperature,surftemp)
+corr_nasa <- cor(selected_var)
+corrplot(corr_nasa,method = "number")
 ```
 
 

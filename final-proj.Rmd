@@ -13,15 +13,37 @@ suppressPackageStartupMessages(library(leaflet))
 dfnasa <- as.data.frame(nasa)
 year1 = slice(dfnasa,1,577,1153,1729,2305,2881,3457,4033,4609,5185,5761,6337)
 ```
+##NASA Spatio-temporal Data
 
+The data are geographic and atospheric measures on a very coarse 24 by 24 grid covering Central America. The data was obtained from the NASA Langley Research Center - Atmospheric Science Data Center.
 
-## R Markdown
+##Storage
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+The data was stored in a data cube tbl from the dplyr package (tbl_cube). This type of data storage uses two arguments: dimensions and measures. The dimensions is a named list of vectors while measures is a named list of arrays.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Dimensions - latitude, longitude, month, and year.
+
+Measures - Cloud coverage, ozone, surface temperature, temperature, and pressure.
 
 ```{r}
 summary(nasa)
 ```
+
+## Variables
+
+
+####Latitude/Longitude
+
+####Month/Year
+
+####Cloud Coverage
+
+####Ozone
+
+####Pressure
+
+####Temperature
+
+####Surface Temperature
+
 
