@@ -52,7 +52,7 @@ highchart() %>%
 
 ```{r}
 highchart() %>%
-  hc_xAxis(categories = year2$month) %>%
+  hc_xAxis(categories = year1$month) %>%
   hc_add_series(name = "Pressure", data = year1$pressure) %>%
   hc_add_theme(hc_theme_ffx())
 ```
@@ -241,7 +241,7 @@ Maps
 =======================================================
 Column {data-width=500}
 -----------------------------------------------------------------------
-###Chart A
+###Temperature Distribution
 ```{r}
 dflat = dfnasa$lat[1:576]
 dflong = dfnasa$long[1:576]
@@ -258,7 +258,7 @@ leaflet(slice(dfnasa,1:576)) %>%
 
 Column {data-width=500}
 -----------------------------------------------------------------------
-###Chart B
+###Atmospheric Pressure Distribution
 ```{r}
 dflat = dfnasa$lat[1:576]
 dflong = dfnasa$long[1:576]
