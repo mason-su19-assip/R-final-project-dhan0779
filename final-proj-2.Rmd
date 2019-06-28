@@ -128,7 +128,7 @@ summary(model)
 Chose 50 random data points from the NASA data set (some listed below):
 
 ```{r}
-temp_pred <- sample_n(dfnasa,50) 
+temp_pred <- sample_n(dfnasa,100) 
 head(temp_pred)
 ```
 Data frame of 50 random rows from the NASA data set.
@@ -145,6 +145,7 @@ The model_usage variable was used to find the prediction while storing the actua
 model_predictions <- model_usage %>% add_predictions(model)
 
 head(model_predictions)
+head(real_temp)
 ```
 
 ####Graph of Predictions
