@@ -43,6 +43,8 @@ highchart() %>%
   hc_add_theme(hc_theme_538())
 ```
 
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Temperatures and Ozone
 
 ```{r}
@@ -54,6 +56,8 @@ highchart() %>%
   hc_add_theme(hc_theme_economist())
 ```
 
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Pressure
 
 ```{r}
@@ -79,6 +83,8 @@ highchart() %>%
   hc_add_theme(hc_theme_538())
 ```
 
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Temperatures and Ozone
 
 ```{r}
@@ -90,6 +96,8 @@ highchart() %>%
   hc_add_theme(hc_theme_economist())
 ```
 
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Pressure
 
 ```{r}
@@ -114,7 +122,8 @@ highchart() %>%
   hc_add_series(name = "Medium Cloud", data = year3$cloudmid) %>%
   hc_add_theme(hc_theme_538())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Temperatures and Ozone
 
 ```{r}
@@ -125,7 +134,8 @@ highchart() %>%
   hc_add_series(name = "Ozone", data = year3$ozone) %>%
   hc_add_theme(hc_theme_economist())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Pressure
 
 ```{r}
@@ -150,7 +160,8 @@ highchart() %>%
   hc_add_series(name = "Medium Cloud", data = year4$cloudmid) %>%
   hc_add_theme(hc_theme_538())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Temperatures and Ozone
 
 ```{r}
@@ -161,7 +172,8 @@ highchart() %>%
   hc_add_series(name = "Ozone", data = year4$ozone) %>%
   hc_add_theme(hc_theme_economist())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Pressure
 
 ```{r}
@@ -186,7 +198,8 @@ highchart() %>%
   hc_add_series(name = "Medium Cloud", data = year5$cloudmid) %>%
   hc_add_theme(hc_theme_538())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Temperatures and Ozone
 
 ```{r}
@@ -197,7 +210,8 @@ highchart() %>%
   hc_add_series(name = "Ozone", data = year5$ozone) %>%
   hc_add_theme(hc_theme_economist())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Pressure
 
 ```{r}
@@ -222,7 +236,8 @@ highchart() %>%
   hc_add_series(name = "Medium Cloud", data = year6$cloudmid) %>%
   hc_add_theme(hc_theme_538())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Temperatures and Ozone
 
 ```{r}
@@ -233,7 +248,8 @@ highchart() %>%
   hc_add_series(name = "Ozone", data = year6$ozone) %>%
   hc_add_theme(hc_theme_economist())
 ```
-
+Column {data-width=500}
+-----------------------------------------------------------------------
 ### Pressure
 
 ```{r}
