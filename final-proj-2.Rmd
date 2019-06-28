@@ -37,9 +37,11 @@ I created several linear regression models using temperature as the dependent va
 ```{r}
 temp_lowc <- lm(temperature ~ cloudlow,data = combine)
 temp_lowc %>% tidy() %>% as.data.frame()
-lowcg <- ggplot(combine,aes(x=cloudlow,y=temperature))+geom_point()+
-  xlab("Low Cloud Coverage")+ylab("Temperature")+
-  geom_abline(intercept=277.7133,slope=0.6569,col="red")
+
+lowcg <- ggplot(combine,aes(x=cloudlow,y=temperature))+
+         geom_point()+
+         xlab("Low Cloud Coverage")+ylab("Temperature")+
+         geom_abline(intercept=277.7133,slope=0.6569,col="red")
 lowcg
 ```
 
@@ -47,9 +49,11 @@ lowcg
 ```{r}
 temp_midc <- lm(temperature ~ cloudmid,data = combine)
 temp_midc %>% tidy() %>% as.data.frame()
-midcg <- ggplot(combine,aes(x=cloudmid,y=temperature))+geom_point()+
-  xlab("Middle Cloud Coverage")+ylab("Temperature")+
-  geom_abline(intercept=313.376,slope=-1.168,col="red")
+
+midcg <- ggplot(combine,aes(x=cloudmid,y=temperature))+
+         geom_point()+
+         xlab("Middle Cloud Coverage")+ylab("Temperature")+
+         geom_abline(intercept=313.376,slope=-1.168,col="red")
 midcg
 ```
 
@@ -57,9 +61,11 @@ midcg
 ```{r}
 temp_highc <- lm(temperature ~ cloudhigh,data = combine)
 temp_highc %>% tidy() %>% as.data.frame()
-highcg <- ggplot(combine,aes(x=cloudhigh,y=temperature))+geom_point()+
-  xlab("High Cloud Coverage")+ylab("Temperature")+
-  geom_abline(intercept=298.8933,slope=-0.8519,col="red")
+
+highcg <- ggplot(combine,aes(x=cloudhigh,y=temperature))+
+          geom_point()+
+          xlab("High Cloud Coverage")+ylab("Temperature")+
+          geom_abline(intercept=298.8933,slope=-0.8519,col="red")
 highcg
 ```
 
@@ -67,9 +73,11 @@ highcg
 ```{r}
 temp_ozone <- lm(temperature ~ ozone,data = combine)
 temp_ozone %>% tidy() %>% as.data.frame()
-ozoneg <- ggplot(combine,aes(x=ozone,y=temperature))+geom_point()+
-  xlab("Ozone Level")+ylab("Temperature")+
-  geom_abline(intercept=337.8292,slope=-0.1526,col="red")
+
+ozoneg <- ggplot(combine,aes(x=ozone,y=temperature))+ 
+          geom_point()+
+          xlab("Ozone Level")+ylab("Temperature")+
+          geom_abline(intercept=337.8292,slope=-0.1526,col="red")
 ozoneg
 ```
 
@@ -77,9 +85,11 @@ ozoneg
 ```{r}
 temp_surftemp <- lm(temperature ~ surftemp,data = combine)
 temp_surftemp %>% tidy() %>% as.data.frame()
-surfg <- ggplot(combine,aes(x=surftemp,y=temperature))+geom_point()+
-  xlab("Surface Temperature")+ylab("Temperature")+
-  geom_abline(intercept=86.0301,slope=0.7002,col="red")
+
+surfg <- ggplot(combine,aes(x=surftemp,y=temperature))+
+         geom_point()+
+         xlab("Surface Temperature")+ylab("Temperature")+
+         geom_abline(intercept=86.0301,slope=0.7002,col="red")
 surfg
 ```
 
@@ -87,9 +97,11 @@ surfg
 ```{r}
 temp_pres <- lm(temperature ~ pressure,data = combine)
 temp_pres %>% tidy() %>% as.data.frame()
-presg <- ggplot(combine,aes(x=pressure,y=temperature))+geom_point()+
-  xlab("Atmospheric Pressure")+ylab("Temperature")+
-  geom_abline(intercept=259.84484,slope=0.03408,col="red")
+
+presg <- ggplot(combine,aes(x=pressure,y=temperature))+
+         geom_point()+
+         xlab("Atmospheric Pressure")+ylab("Temperature")+
+         geom_abline(intercept=259.84484,slope=0.03408,col="red")
 presg
 ```
 
@@ -141,9 +153,10 @@ head(model_predictions)
 actual_preddf <- data.frame(cbind(real_temp, model_predictions$pred))
 colnames(actual_preddf) = c("real","prediction")
 
-ggplotly(ggplot(actual_preddf)+geom_point(aes(x=real,y=prediction))+
-  geom_abline(intercept=0,slope=1,col="darkturquoise",size=1)+
-  xlab("Real Temperature")+ylab("Predicted Temperature"))
+ggplotly(ggplot(actual_preddf)+
+         geom_point(aes(x=real,y=prediction))+
+         geom_abline(intercept=0,slope=1,col="darkturquoise",size=1)+
+         xlab("Real Temperature")+ylab("Predicted Temperature"))
 ```
 <br>
 

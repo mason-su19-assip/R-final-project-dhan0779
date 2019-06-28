@@ -116,13 +116,15 @@ Used a line graph to show any general trends of the pressure data.
 dflat = dfnasa$lat[1:576]
 dflong = dfnasa$long[1:576]
 
-qpal <- colorFactor(c("blue","royalblue","lightskyblue", "yellow","orange","red"), domain = dfnasa$temperature[1:576])
+qpal <- colorFactor(c("blue","royalblue","lightskyblue", "yellow","orange","red"), 
+                    domain = dfnasa$temperature[1:576])
 
 leaflet(slice(dfnasa,1:576)) %>%
   addTiles() %>%
   setView(lng = -90, lat =  10, zoom = 3) %>%
-  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(temperature),stroke = FALSE, fillOpacity= 0.3,
-                    popup = paste("Temperature:", dfnasa$temperature))
+  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(temperature),
+                   stroke = FALSE, fillOpacity= 0.3,
+                   popup = paste("Temperature:", dfnasa$temperature))
 ```
 Using the leaflet package to create a map, I marked the temperatures of each region in the 24 by 24 grid. The red shows hotter temperatures while the blue shows cooler temperatures.
 
@@ -132,12 +134,14 @@ Using the leaflet package to create a map, I marked the temperatures of each reg
 dflat = dfnasa$lat[1:576]
 dflong = dfnasa$long[1:576]
 
-qpal <- colorFactor(c("blue","yellow2","orange","firebrick1"), domain = dfnasa$pressure[1:576])
+qpal <- colorFactor(c("blue","yellow2","orange","firebrick1"), 
+                    domain = dfnasa$pressure[1:576])
 
 leaflet(slice(dfnasa,1:576)) %>%
   addTiles() %>%
   setView(lng = -90, lat =  10, zoom = 3) %>%
-  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(pressure),stroke = FALSE, fillOpacity= 0.5,
+  addCircleMarkers(lat = dflat, lng = dflong,color = ~qpal(pressure),
+                   stroke = FALSE, fillOpacity= 0.5,
                    popup = paste("Pressure:",dfnasa$pressure))
 ```
 This map shows the distribution of air pressure across the 24 by 24 grid.
@@ -149,6 +153,8 @@ The purpose of the Pearson's correlation was to make clearer relationships with 
 ```{r}
 selected_var <- combine %>%
   select(cloudhigh,cloudmid,cloudlow,ozone,pressure,temperature,surftemp)
+
+
 corr_nasa <- cor(selected_var)
 corrplot(corr_nasa,method = "number")
 ```
